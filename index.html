@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+
+
+
+<head>
+
+    <title>kozi</title>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="keywords" content="kozi影">
+
+    <meta name="description" content="影音">
+
+
+
+    <link rel="canonical" href="https://m3u8player.org">
+
+
+
+    <link rel="icon" type="image/png" href="./images/logo.png">
+
+    <link rel="icon" href="./images/logo.ico" type="image/x-icon" />
+
+
+
+    <script src="https://cdn.staticfile.org/jquery/3.6.0/jquery.min.js"></script>
+
+
+
+    <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+
+    <script src="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+
+
+
+
+    <link rel="stylesheet" href="/share-sdk/css/share.min.css">
+
+    <script src="/share-sdk/js/social-share.min.js"></script>
+
+
+
+    <link href="https://web.sdk.qcloud.com/player/tcplayer/release/v5.1.0/tcplayer.min.css" rel="stylesheet" />
+
+    <script src="https://web.sdk.qcloud.com/player/tcplayer/release/v5.1.0/tcplayer.v5.1.0.min.js"></script>
+
+
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7751395790281530"
+
+            crossorigin="anonymous">
+
+    </script>
+
+
+
+    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+
+    <script>LA.init({id:"3G9QRCtAm0z4ABfe",ck:"3G9QRCtAm0z4ABfe"})</script>
+
+
+
+    <style>
+
+
+
+        @media screen and (max-width: 640px){
+
+            #player-container-id {
+
+                height: 200px!important;
+
+            }
+
+        }
+
+
+
+        html, body{
+
+            width: 100%;
+
+            height: 100%;
+
+            display: block;
+
+        }
+
+
+
+        .hd {
+
+            width: 100%;
+
+            height: 50px;
+
+            background-color: #0e90d2;
+
+        }
+
+
+
+        .hd .link-list {
+
+            padding: 0 16px;
+
+            height: 50px;
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+            display: flex;
+
+            flex-direction: row;
+
+            gap: 24px;
+
+            align-items: center;
+
+            align-content: center;
+
+        }
+
+
+
+        .hd .link-list a {
+
+            font-size: 16px;
+
+            color: #fff;
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .hd .link-list a:hover {
+
+            font-weight: bold;
+
+        }
+
+
+
+        .main {
+
+            padding: 16px 16px;
+
+            width: 100%;
+
+            max-width: 900px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .main h1 {
+
+            text-align: center;
+
+            font-size: 30px;
+
+            color: #0e90d2;
+
+            font-weight: 800;
+
+            margin-bottom: 24px;
+
+        }
+
+
+
+        .main .form {
+
+            width: 100%;
+
+            display: flex;
+
+            flex-direction: row;
+
+            margin-bottom: 24px;
+
+        }
+
+
+
+        .main .form input {
+
+            flex: 1;
+
+            height: 40px;
+
+            border-top: 1px solid #0e90d2;
+
+            border-left: 1px solid #0e90d2;
+
+            border-bottom: 1px solid #0e90d2;
+
+            border-right: 0px;
+
+            padding-left: 10px;
+
+        }
+
+
+
+        .main .form input:focus {
+
+            outline: #0e90d2;
+
+        }
+
+
+
+        .main .form img {
+
+            margin-left: -4px;
+
+            width: 40px;
+
+            height: 40px;
+
+            cursor: pointer;
+
+        }
+
+
+
+        .main #share {
+
+            text-align: center;
+
+            margin-top: 24px;
+
+            margin-bottom: 24px;
+
+        }
+
+
+
+        .main p {
+
+            font-size: 15px;
+
+        }
+
+
+
+        .main .alert a {
+
+            color: #501445;
+
+            text-decoration: underline;
+
+        }
+
+
+
+        .main h2 {
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+        }
+
+    </style>
+
+
+
+
+
+</head>
+
+
+
+<body>
+
+
+
+    <header class="hd">
+
+        <div class="link-list">
+
+                 <span>QQ 202218515      </span>
+
+        </div>
+
+    </header>
+
+
+
+    <div class="main">
+
+        <h1>kozi 播放器</h1>
+
+
+
+
+
+        <div class="form">
+
+            <input type="text" id="url"  value="https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8" placeholder="请输入m3u8播放地址" autocomplete="off">
+
+            <img src="http://m3u8player.org/images/ic-play.png" onclick="play()" alt="play"/>
+
+        </div>
+
+
+
+
+
+        <video id="player-container-id"  preload="auto" playsinline webkit-playsinline style="width: 100%;min-height:200px; background:#000;">
+
+        </video>
+
+
+
+        <div id="share"></div>
+
+
+
+
+
+      
+
+
+        <p>
+
+            <span>"If something is important enough, even if the odds are against you, you should still do it."
+
+                <br />如果一件事情对你很重要，即使成功的概率很小，你也应该去做 —— <strong>埃隆马斯克</strong>
+
+            </span>
+
+            <br>
+
+            <br>
+
+            <br>
+           <span>QQ群：371285089   </span>
+        </p>
+
+
+
+    </div>
+
+
+
+
+
+
+
+
+<!--////////////////////play()///////////////-->
+    <script>
+
+
+
+
+
+        var player = undefined;
+
+
+
+
+
+        function play() {
+
+
+
+            let url = $("#url").val()
+
+
+
+            if(player === undefined) {
+
+                player = TCPlayer('player-container-id', {
+
+                sources: [{
+
+                    src: url,
+
+                }],
+
+                licenseUrl: 'https://license.vod2.myqcloud.com/license/v2/1251321133_1/v_cube.license',
+
+            });
+
+            }
+
+
+
+
+
+            player.pause();
+
+            console.log(url)
+
+            player.src(url); // url 播放地址
+
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+
+
+</html>
+
